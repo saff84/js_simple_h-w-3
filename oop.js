@@ -96,7 +96,7 @@ class Basket {
     }
 
     removeUnavailable() {
-        return this.goods.filter(item => item.available === true);
+        return this.goods.filter(good => good.available === false).forEach(value => this.remove(value, value.amount));
     }
 }
 
@@ -126,12 +126,17 @@ bascket = new Basket()
 
 bascket.add(one, 2)
 bascket.add(three, 3)
+console.log(bascket)
 console.log(bascket.totalSum)
 bascket.remove(one, 1)
 console.log(bascket.totalSum)
 bascket.remove(one, 1)
 console.log(bascket.totalSum)
 bascket.removeUnavailable()
+console.log(bascket)
 console.log(bascket.totalSum)
+bascket.add(one, 2)
+bascket.add(two, 2)
+console.log(bascket)
 bascket.clear()
 console.log(bascket)
